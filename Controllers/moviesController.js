@@ -3,7 +3,7 @@ const fs = require('fs');
 let movies = JSON.parse(fs.readFileSync('./data/movies.json'));
 
 
-//PARAM MIDDLEWARE 
+//PARAM MIDDLEWARE USED
 exports.checkId = (req, res, next, value) => {
     console.log('Movie id is : '+ value);
 
@@ -31,13 +31,21 @@ exports.getallMovie =  (req,res) =>{
 }
 
 exports.getMovie = (req,res) =>{
-     //CONVERTING ID TO INTEGER TYPE
+    // console.log(req.params);
+
+    //CONVERTING ID TO INTEGER TYPE
     const id = req.params.id * 1;
 
     //FIDN MOVIE BASED ON PARAMETER
     let movie = movies.find(el => el.id===id);
 
-    
+    if(!movie){
+       return res.status(404).json({
+            status: "fail",
+            message : "Movie with Id "+id+" is not found"
+        })
+    }
+
     //SEND MOVIE IN THE RESPONCE
     res.status(200).json({
         status: "sucess",
@@ -66,7 +74,12 @@ exports.createMovie = (req,res) =>{
 exports.updateMovie = (req,res) =>{
     let id = req.params.id * 1;
     let movieToUpdate = movies.find(el => el.id===id);
-  
+    if(!movieToUpdate){
+        return res.status(404).json({
+             status: "fail",
+             message : "No movie object with Id "+id+" is found"
+         })
+     }
     let index = movies.indexOf(movieToUpdate);
 
     Object.assign(movieToUpdate, req.body);
@@ -86,7 +99,12 @@ exports.updateMovie = (req,res) =>{
 exports.deleteMovie = (req,res) =>{
     let id = req.params.id * 1;
     let movieToDelete = movies.find(el => el.id===id);
-
+    if(!movieToDelete){
+        return res.status(404).json({
+             status: "fail",
+             message : "No movie object with Id "+id+" is found for delete."
+         })
+     }
     const index = movies.indexOf(movieToDelete);
     
     movies.splice(index,1);
