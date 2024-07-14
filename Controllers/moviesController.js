@@ -3,7 +3,7 @@ const fs = require('fs');
 let movies = JSON.parse(fs.readFileSync('./data/movies.json'));
 
 
-//PARAM MIDDLEWARE USED
+//PARAM MIDDLEWARE 
 exports.checkId = (req, res, next, value) => {
     console.log('Movie id is : '+ value);
 
