@@ -1,32 +1,8 @@
 [
-    {
-        "id": 1,
-        "name": "Die Hard",
-        "releseYear": 1998,
-        "duration": 90
-    },
-    {
-        "id": 2,
-        "name": "Expandablr",
-        "releseYear": 2008,
-        "duration": 190
-    },
-    {
-        "id": 3,
-        "name": "By Hart",
-        "releseYear": 1908,
-        "duration": 120
-    },
-    {
-        "id": 4,
-        "name": "Test",
-        "releseYear": 2028,
-        "duration": 90
-    },
-    {
-        "id": 5,
-        "name": "OMG",
-        "releseYear": 2020,
-        "duration": 90
-    }
+  { "id": 1, "name": "Die Hard", "releseYear": 1998, "duration": 90 },
+  { "id": 2, "name": "Expandablr", "releseYear": 2008, "duration": 190 },
+  { "id": 3, "name": "By Hart", "releseYear": 1908, "duration": 120 },
+  { "id": 4, "name": "Test", "releseYear": 2028, "duration": 90 },
+  { "id": 5, "name": "OMG", "releseYear": 2020, "duration": 90 },
+  { "id": 6, "name": "Salam bhai", "releseYear": 2026, "duration": 200 }
 ]

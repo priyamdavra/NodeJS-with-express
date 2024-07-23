@@ -17,6 +17,17 @@ exports.checkId = (req, res, next, value) => {
     next();
 }
 
+exports.validateBody = (req, res, next) => {
+    if(!req.body.name || !req.body.releseYear){
+        return res.status(400).json({
+            status : 'fail',
+            message : 'Not a valid movie data'
+        });
+    }
+    next();
+}
+
+
 //ROUTE HANDELER FUNCTION
 
 exports.getallMovie =  (req,res) =>{
