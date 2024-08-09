@@ -4,6 +4,8 @@ const moviesController = require('./../Controllers/moviesController');
 const router = express.Router();
 //router.param('id', moviesController.checkId);
 
+//router.route('/highest-rated').get(moviesController.getHighestRated, moviesController.getallMovie)
+
 router.route('/')
     .get(moviesController.getallMovie)
     .post(moviesController.createMovie) // Chaning multiple middleware
